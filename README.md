@@ -25,3 +25,4 @@ set CSRF_COOKIE_SECURE=True
 
 Follow these steps before pushing to GitHub to avoid exposing secrets and to ensure Django's deploy checks pass.
 "# car-rental-system" 
+"# car-rental-system" 
