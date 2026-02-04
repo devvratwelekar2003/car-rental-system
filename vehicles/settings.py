@@ -32,7 +32,11 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True').strip().lower() == 'true'
 
 # Allow hosts can be provided as a comma-separated list via DJANGO_ALLOWED_HOSTS
 # Example: DJANGO_ALLOWED_HOSTS=example.com,api.example.com
-ALLOWED_HOSTS = [h for h in os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',') if h]
+# For development, default to localhost and 127.0.0.1; for production, specify exact domains
+if DEBUG:
+    ALLOWED_HOSTS = ['*']  # Allow all hosts in development mode
+else:
+    ALLOWED_HOSTS = [h.strip() for h in os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',') if h.strip()]
 
 
 # Application definition
