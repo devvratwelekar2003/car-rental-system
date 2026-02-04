@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}Cars{% endblock title %}
+
+{%load static%}
+<link rel="stylesheet" href="{%static 'style.css'%}">
+
+{% block body %}
+
+<main role="main" class="vehicles-main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Welcome {{request.user}} !!</h1>
+        <p class="jumbotron-subtext">Get wide varieties of cars in affordable prices!!</p>
+      </div>
+    </section>
+
+    <!-- Advertisement Section -->
+    <section class="ad-section">
+      <div class="ad-container">
+        <div class="ad-banner primary-ad">
+          <div class="ad-content">
+            <h2>🎉 SPECIAL OFFER - 30% OFF!</h2>
+            <p>Book your next rental and save up to 30% on all cars</p>
+            <span class="ad-badge">Limited Time Offer</span>
+            <div class="ad-button-group">
+              <a href="#cars-section" class="ad-btn ad-btn-primary">
+                <span>📅 BOOK NOW</span>
+              </a>
+              <a href="/contact" class="ad-btn ad-btn-secondary">
+                <span>📞 CONTACT US</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="ad-row">
+          <div class="ad-card">
+            <div class="ad-icon">🚗</div>
+            <h3>Wide Selection</h3>
+            <p>Choose from 50+ vehicles</p>
+          </div>
+          <div class="ad-card">
+            <div class="ad-icon">💰</div>
+            <h3>Best Prices</h3>
+            <p>Guaranteed lowest rates</p>
+          </div>
+          <div class="ad-card">
+            <div class="ad-icon">🛡️</div>
+            <h3>Safe & Secure</h3>
+            <p>Full insurance coverage</p>
+          </div>
+          <div class="ad-card">
+            <div class="ad-icon">⚡</div>
+            <h3>Quick Booking</h3>
+            <p>Reserve in minutes</p>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <div class="gallery-section" id="cars-section">
+      <div class="gallery-container">
+        <div class="gallery-header">
+          <h2>Our Premium Fleet</h2>
+          <p>Explore our collection of quality vehicles</p>
+        </div>
+        
+        <div class="gallery-grid">
+          {% for i in car %}
+          <div class="gallery-item">
+            
+            <div class="car-card">
+              <div class="car-image-wrapper">
+                {% load static %}
+                {% if i.image %}
+                  <img src="{{ i.image.url }}" alt="{{ i.car_name }}" class="car-image">
+                {% else %}
+                  <img src="{% static 'images/car-placeholder.svg' %}" alt="no-image" class="car-image">
+                {% endif %}
+                <div class="car-badge">⭐ Premium</div>
+              </div>
+              
+              <div class="card-body">
+                <h4 class="car-name">{{i.car_name}}</h4>
+                <hr class="car-hr">
+                <p class="card-text">{{i.car_desc}}</p>
+                <div class="price-section">
+                  <span class="price-label">Price per Day:</span>
+                  <span class="price-value">₹ {{i.price}}</span>
+                </div>
+                <div class="car-footer">
+                  <a type="button" class="btn btn-book" href="/bill?car={{ i.car_name|urlencode }}">
+                    <span>📅 BOOK NOW</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          {%endfor%}
+        </div>
+      </div>
+    </div>
+
+{% endblock body %}
+
+
+
