@@ -150,12 +150,12 @@ SESSION_COOKIE_SECURE=True
 CSRF_COOKIE_SECURE=True
 ```
 
-✅ **Run Deploy Checks**:
+ **Run Deploy Checks**:
 ```bash
 python manage.py check --deploy
 ```
 
-✅ **Verify .gitignore** includes:
+ **Verify .gitignore** includes:
 ```
 env/
 venv/
@@ -166,7 +166,7 @@ __pycache__/
 *.pyc
 ```
 
-✅ **Never commit**: `.env`, virtual environment, database, or sensitive credentials
+ **Never commit**: `.env`, virtual environment, database, or sensitive credentials
 
 ---
 

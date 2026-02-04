@@ -114,7 +114,7 @@
 </div>
 
 <div class="text-center">
-  <button class="btn btn-primary " type="button" data-toggle="modal" data-target="#exampleModalLong" id="showre" onclick="calculate()">Display Bill</button> 
+  <button class="btn btn-primary " type="button" data-toggle="modal" data-target="#exampleModalLong" id="showre" onclick="validateBookingForm() && calculate()">Display Bill</button> 
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" id="13">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document" id="14" style="height:750px">
       <div class="modal-content" id="15" style="background-color:rgb(226, 239, 251); ">
@@ -144,7 +144,7 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-primary " type="submit"  >Confirm Booking</button>
+  <button class="btn btn-primary " type="submit" onclick="return validateBookingForm()"  >Confirm Booking</button>
     
 </div>
 </form>

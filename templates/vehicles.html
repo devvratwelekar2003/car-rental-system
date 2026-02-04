@@ -65,6 +65,32 @@
           <h2>Our Premium Fleet</h2>
           <p>Explore our collection of quality vehicles</p>
         </div>
+
+        <!-- Filtering Section -->
+        <div class="filter-section">
+          <div class="filter-container">
+            <div class="filter-group">
+              <label for="vehicleSearch" class="filter-label">🔍 Search Vehicle:</label>
+              <input type="text" id="vehicleSearch" class="form-control filter-input" placeholder="Search by car name...">
+            </div>
+            <div class="filter-group">
+              <label for="priceFilter" class="filter-label">💰 Price Range:</label>
+              <select id="priceFilter" class="form-control filter-select">
+                <option value="all">All Prices</option>
+                <option value="budget">Budget (Below ₹3000)</option>
+                <option value="mid">Mid-Range (₹3000 - ₹6000)</option>
+                <option value="premium">Premium (Above ₹6000)</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="typeFilter" class="filter-label">🚗 Car Type:</label>
+              <input type="text" id="typeFilter" class="form-control filter-input" placeholder="e.g., SUV, Sedan, Hatchback...">
+            </div>
+            <div class="filter-group">
+              <button class="btn btn-secondary filter-reset" onclick="resetFilters()">Reset Filters</button>
+            </div>
+          </div>
+        </div>
         
         <div class="gallery-grid">
           {% for i in car %}
